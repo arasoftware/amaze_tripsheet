@@ -7,10 +7,16 @@
     <color name="accent">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="control_color">#FFFFFF</color>
-        <color name="ediitext_background">#3d3b3b</color>
+    <color name="ediitext_background">#3d3b3b</color>
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#8f8f8f</color>
     <color name="graly">#4d4b4b</color>
     <color name="golden_yellow">#ffdf00</color>
+    <color name="patternBlue">#e1e8ea</color>
+    <color name="mountain_gren">#1FAB71</color>
+    <color name="edge_water">#C4DDC7</color>
+    <color name="aquaa_Squeeze">#D5E8D5</color>
+    <color name="snow">#FAFAFA</color>
+
 </resources>

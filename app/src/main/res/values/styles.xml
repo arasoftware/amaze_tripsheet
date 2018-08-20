@@ -4,16 +4,16 @@
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.DarkActionBar">
 
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
-        <item name="android:windowBackground">@drawable/background</item>
-        <item name="colorControlNormal">@color/control_color</item>
-        <item name="colorControlActivated">@color/control_color</item>
-        <item name="colorControlHighlight">@color/control_color</item>
-        <item name="android:textColorHint">@color/control_color</item>
+        <item name="colorPrimary">@color/mountain_gren</item>
+        <item name="colorPrimaryDark">@color/mountain_gren</item>
+        <item name="colorAccent">@color/mountain_gren</item>
+        <item name="android:windowBackground">@color/snow</item>
+        <item name="colorControlNormal">@color/graly</item>
+        <item name="colorControlActivated">@color/graly</item>
+        <item name="colorControlHighlight">@color/graly</item>
+        <item name="android:textColorHint">@color/mountain_gren</item>
 
-        <item name="android:editTextColor">@color/control_color</item>
+        <item name="android:editTextColor">@color/graly</item>
         <item name="android:textViewStyle">@style/textViewStyle</item>
         <item name="android:checkboxStyle">@style/checkBoxStyle</item>
         <item name="android:buttonStyle">@style/buttonStyle</item>
@@ -26,26 +26,26 @@
     </style>
 
     <style name="actionbarStyle" parent="Widget.AppCompat.ActionBar.TabText">
-        <item name="android:background">@color/primary_dark</item>
+        <item name="android:background">@color/mountain_gren</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/graly</item>
 
     </style>
 
     <style name="buttonStyle" parent="android:Widget.Material.Button" tools:targetApi="lollipop">
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/primary_dark</item>
+        <item name="android:background">@color/mountain_gren</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="checkBoxStyle" parent="android:Widget.Material.CompoundButton.CheckBox" tools:targetApi="lollipop">
-        <item name="android:textColor">@color/control_color</item>
+        <item name="android:textColor">@color/edge_water</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textViewStyle" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/golden_yellow</item>
+        <item name="android:textColor">@color/graly</item>
         <item name="android:textStyle">bold</item>
 
         <item name="android:textSize">15sp</item>
@@ -53,15 +53,15 @@
 
     <style name="spinnerTheme">
         <item name="android:textSize">16sp</item>
-        <item name="android:popupBackground">@color/cardview_dark_background</item>
+        <item name="android:popupBackground">@color/edge_water</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:hint">@color/white</item>
     </style>
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/white</item>
-        <item name="android:textColorPrimary">@color/iron</item>
-        <item name="android:background">@color/primary</item>
+        <item name="android:textColorPrimary">@color/graly</item>
+        <item name="android:background">@color/aquaa_Squeeze</item>
         <item name="colorControlNormal">@color/control_color</item>
 
         <item name="colorControlActivated">@color/control_color</item>
@@ -70,7 +70,7 @@
 
     <style name="logo">
 
-        <item name="android:textColor">@color/primary_darker</item>
+        <item name="android:textColor">@color/mountain_gren</item>
         <item name="android:textSize">@dimen/amaze_logo_size</item>
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
         <item name="android:text">@string/app_name</item>
@@ -80,7 +80,7 @@
     </style>
     <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!--buttons color-->
-        <item name="colorAccent">@android:color/white</item>
+        <item name="colorAccent">@color/edge_water</item>
         <item name="android:textStyle">bold</item>
         <!--title and message color-->
         <item name="android:textColorPrimary">@android:color/white</item>
@@ -88,5 +88,25 @@
         <item name="android:windowBackground">@drawable/backgr</item>
     </style>
 
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/graly</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/mountain_gren</item>
+        <item name="colorControlNormal">@color/mountain_gren</item>
+        <item name="colorControlActivated">@color/mountain_gren</item>
+    </style>
+    <style name="card_style" parent="CardView">
+        <item name="cardBackgroundColor">@color/aquaa_Squeeze</item>
+        <item name="android:clickable">true</item>
+        <item name="cardCornerRadius">7dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="cardElevation">7dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
 
+    </style>
 </resources>

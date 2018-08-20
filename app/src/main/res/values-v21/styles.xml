@@ -3,7 +3,7 @@
 
     <style name="buttonStyle" parent="android:Widget.Material.Button">
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/primary_dark</item>
+        <item name="android:background">@color/mountain_gren</item>
         <item name="android:textStyle">bold</item>
     </style>
 </resources>

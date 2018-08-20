@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/listback"
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+        android:id="@+id/tv_pickup_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circular_text_view"
+        android:gravity="center"
+        android:textColor="@color/golden_yellow"
+        android:text="HH:MM"
+        android:textStyle="bold"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/text_tbcustname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/tv_pickup_time"
+        android:shadowColor="@color/iron"
+        android:text="@string/amaze_travels"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_pickup_time"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tv_pickup_time"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold">
+
+        <TextView
+            android:id="@+id/text_tbno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/iron"
+            android:text="1001"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="italic|bold" />
+
+        <TextView
+
+            android:id="@+id/text_tbdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="7dp"
+            android:shadowColor="@color/iron"
+            android:text="@string/dd_mm_yy"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="italic|bold" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

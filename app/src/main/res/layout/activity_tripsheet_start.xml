@@ -25,7 +25,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/pin"
+                    android:tint="@color/mountain_gren"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/mountain_gren"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -94,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Booking Person : " />
+                    android:text="Booking Person  " />
 
                 <TextView
                     android:id="@+id/textview_customermc"
@@ -214,18 +224,29 @@
 
         <android.support.v7.widget.CardView
             style="@style/card_style"
-            android:layout_marginTop="5dp"
-            app:contentPadding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:contentPadding="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/pin"
+                    android:tint="@color/mountain_gren"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/mountain_gren"/>
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextLabel"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -294,12 +315,28 @@
             app:cardBackgroundColor="@color/mountain_gren"
             app:contentPadding="10dp">
 
-        <Button
-            android:id="@+id/Submit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/submit" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:text="@string/submit" />
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
         </android.support.v7.widget.CardView>
     </LinearLayout>
 </ScrollView>

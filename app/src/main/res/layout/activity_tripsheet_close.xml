@@ -21,13 +21,28 @@
             app:cardBackgroundColor="@color/mountain_gren"
             app:contentPadding="10dp">
 
-            <Button
-                android:id="@+id/notify_user"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/click_here_to_notify_user"
-                android:textColor="@color/white" />
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/notify_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/click_here_to_notify_user"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/notification" />
+            </LinearLayout>
+
 
         </android.support.v7.widget.CardView>
         <!--<TableRow-->
@@ -49,8 +64,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/pin"
+                    android:tint="@color/mountain_gren"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/mountain_gren"/>
                 <RelativeLayout
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -227,8 +254,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/graly"
-                    android:text="@string/address"/>
+                    android:text="@string/address"
+                    android:textColor="@color/graly" />
 
             </LinearLayout>
 
@@ -248,34 +275,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
+                <ImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/pin"
+                    android:tint="@color/mountain_gren"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/mountain_gren"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="35dp"
                     android:padding="5dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="fill"
-                        android:text="@string/closing_date"/>
+                        android:gravity="center"
+                        android:text="@string/closing_date" />
 
-                    <TextView
-                        android:id="@+id/closingdate"
+                    <LinearLayout
+                        android:id="@+id/closingdate_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="28dp"
-                        android:gravity="center"
-                        android:textColor="@color/graly"
-                        android:text="@string/text_dateFormat"/>
+                        android:layout_marginRight="28dp">
+
+                        <TextView
+                            android:id="@+id/closingdate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="@string/text_dateFormat"
+                            android:textColor="@color/graly" />
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@+id/closingdate"
+                            android:layout_toRightOf="@+id/closingdate"
+                            android:src="@drawable/date"
+                            android:tint="@color/mountain_gren" />
+                    </LinearLayout>
+
                 </RelativeLayout>
 
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextLabel"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
 
                     <EditText
                         android:id="@+id/textview_closingKmclose"
@@ -297,7 +350,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="@string/closing_time"/>
+                        android:text="@string/closing_time" />
 
                     <EditText
                         android:id="@+id/textview_closingtimeHclose"
@@ -307,7 +360,7 @@
                         android:gravity="center"
                         android:hint="@string/hh"
                         android:inputType="number"
-                        android:maxLength="2"/>
+                        android:maxLength="2" />
 
                     <TextView
                         android:id="@+id/stclose"
@@ -341,12 +394,28 @@
             app:cardBackgroundColor="@color/mountain_gren"
             app:contentPadding="10dp">
 
-            <Button
-                android:id="@+id/Submitclose"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="45dp"
                 android:gravity="center"
-                android:text="@string/next" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Submitclose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:text="@string/next" />
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
         </android.support.v7.widget.CardView>
 
     </LinearLayout>

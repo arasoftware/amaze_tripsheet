@@ -49,12 +49,12 @@
     <string name="_1234567890">1234567890</string>
     <string name="closing_time">closing time</string>
     <string name="next">NEXT</string>
-    <string name="enter_closing_kilometer">Enter closing time</string>
+    <string name="enter_closing_kilometer">Enter closing KiloMeter</string>
     <string name="enter_starting_kilometer">Starting km</string>
     <string name="submit">Submit</string>
     <string name="pick_a_vehicle_type">Pick a Vehicle Type :</string>
     <string name="address">Address</string>
-    <string name="mobile_no">Mobile No :</string>
+    <string name="mobile_no">Mobile No </string>
     <string name="report_to">Report Person</string>
     <string name="customer_multi_customer_name">customer multi customer name</string>
     <string name="dd_mm_yy">DD/MM/YY</string>

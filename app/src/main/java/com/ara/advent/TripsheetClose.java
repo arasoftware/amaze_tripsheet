@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -102,6 +103,8 @@ public class TripsheetClose extends AppCompatActivity {
     TextView vehicle_name;
     @BindView(R.id.mobileNumberClose)
     TextView mobnoClose;
+    @BindView(R.id.closingdate_layout)
+    RelativeLayout closing_date_layout;
     @BindView(R.id.closingdate)
     TextView closingdate;
     String a, b;
@@ -167,7 +170,7 @@ public class TripsheetClose extends AppCompatActivity {
             finish();
         }
 
-        closingdate.setOnClickListener(new View.OnClickListener() {
+        closing_date_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 closingDate();

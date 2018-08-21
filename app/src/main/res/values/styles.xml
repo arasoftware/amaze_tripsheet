@@ -12,7 +12,6 @@
         <item name="colorControlActivated">@color/graly</item>
         <item name="colorControlHighlight">@color/graly</item>
         <item name="android:textColorHint">@color/mountain_gren</item>
-
         <item name="android:editTextColor">@color/graly</item>
         <item name="android:textViewStyle">@style/textViewStyle</item>
         <item name="android:checkboxStyle">@style/checkBoxStyle</item>
@@ -27,7 +26,6 @@
 
     <style name="actionbarStyle" parent="Widget.AppCompat.ActionBar.TabText">
         <item name="android:background">@color/mountain_gren</item>
-        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/graly</item>
 
@@ -45,14 +43,12 @@
     </style>
 
     <style name="textViewStyle" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/graly</item>
+        <item name="android:textColor">@color/mountain_gren</item>
         <item name="android:textStyle">bold</item>
 
-        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="spinnerTheme">
-        <item name="android:textSize">16sp</item>
         <item name="android:popupBackground">@color/edge_water</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:hint">@color/white</item>
@@ -60,8 +56,8 @@
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/white</item>
-        <item name="android:textColorPrimary">@color/graly</item>
-        <item name="android:background">@color/aquaa_Squeeze</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/mountain_gren</item>
         <item name="colorControlNormal">@color/control_color</item>
 
         <item name="colorControlActivated">@color/control_color</item>
@@ -71,7 +67,6 @@
     <style name="logo">
 
         <item name="android:textColor">@color/mountain_gren</item>
-        <item name="android:textSize">@dimen/amaze_logo_size</item>
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
         <item name="android:text">@string/app_name</item>
         <item name="android:textStyle">bold</item>
@@ -90,20 +85,20 @@
 
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <!-- Hint color and label color in FALSE state -->
-        <item name="android:textColorHint">@color/graly</item>
+        <item name="android:textColorHint">@color/mountain_gren</item>
         <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
         <item name="colorAccent">@color/mountain_gren</item>
         <item name="colorControlNormal">@color/mountain_gren</item>
         <item name="colorControlActivated">@color/mountain_gren</item>
     </style>
     <style name="card_style" parent="CardView">
-        <item name="cardBackgroundColor">@color/aquaa_Squeeze</item>
+        <item name="cardBackgroundColor">@color/white</item>
         <item name="android:clickable">true</item>
         <item name="cardCornerRadius">7dp</item>
-        <item name="android:layout_marginTop">1dp</item>
-        <item name="android:layout_marginBottom">1dp</item>
-        <item name="android:layout_marginRight">1dp</item>
-        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
         <item name="cardElevation">7dp</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>

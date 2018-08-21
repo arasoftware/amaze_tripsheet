@@ -16,7 +16,7 @@
     <color name="patternBlue">#e1e8ea</color>
     <color name="mountain_gren">#1FAB71</color>
     <color name="edge_water">#C4DDC7</color>
-    <color name="aquaa_Squeeze">#D5E8D5</color>
-    <color name="snow">#FAFAFA</color>
+    <color name="aquaa_Squeeze">#f3fff3</color>
+    <color name="snow">#ECEFF1</color>
 
 </resources>

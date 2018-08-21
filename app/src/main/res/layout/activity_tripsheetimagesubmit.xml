@@ -5,8 +5,7 @@
     android:id="@+id/OncallTripsheet_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:padding="5dp"
     tools:context="com.ara.advent.TripsheetImageSubmit">
 
 
@@ -16,326 +15,368 @@
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
-
-        <RelativeLayout
+        <android.support.v7.widget.CardView
+            style="@style/card_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            app:contentPadding="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:shadowColor="@color/iron"
-                android:text="@string/booking_id"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="18dp"
-                android:gravity="center"
-                android:shadowColor="@color/iron"
-                android:text="@string/starting_date"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/iron"
+                        android:text="@string/booking_id" />
 
-            <TextView
-                android:id="@+id/textview_tripnosubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/no"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="18dp"
+                        android:gravity="center"
+                        android:text="@string/starting_date" />
+                </RelativeLayout>
 
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
 
-            <TextView
-                android:id="@+id/textview_tripdatesubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="7dp"
-                android:gravity="center"
-                android:paddingRight="10dp"
+                    <TextView
+                        android:id="@+id/textview_tripnosubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/no"
+                        android:textColor="@color/graly" />
 
-                android:text="@string/dd_mm_yy"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+                    <TextView
+                        android:id="@+id/textview_tripdatesubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="7dp"
+                        android:gravity="center"
+                        android:paddingRight="10dp"
+                        android:text="@string/dd_mm_yy"
+                        android:textColor="@color/graly" />
+                </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:shadowColor="@color/iron"
-                android:text="@string/closing_date"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
 
-            <TextView
-                android:id="@+id/closedate"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="18dp"
-                android:gravity="center"
-                android:shadowColor="@color/iron"
-                android:text="@string/starting_date"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/closing_date" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:layout_marginTop="5dp"></TableRow>
+                    <TextView
+                        android:id="@+id/closedate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="18dp"
+                        android:gravity="center"
+                        android:text="@string/starting_date"
+                        android:textColor="@color/graly" />
+                </RelativeLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/customer_name" />
 
-            android:text="@string/customer_name"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/textview_customersubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/customer_name"
+                    android:textColor="@color/graly" />
 
-        <TextView
-            android:id="@+id/textview_customersubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/customer_name"
 
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0.1dp"
+
+        <android.support.v7.widget.CardView
+            style="@style/card_style"
             android:layout_marginTop="5dp"
-          ></TableRow>
-
-        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="wrap_content"
+            app:contentPadding="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:ems="8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TripSheet Bill" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview1"
+                        style="@style/card_style"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        app:cardBackgroundColor="@color/mountain_gren">
+
+                        <ImageView
+                            android:id="@+id/input_cameraImage1"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/text_your_photo"
+                            android:src="@drawable/camera_icon"
+                            android:tint="@color/white" />
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview1back"
+                        style="@style/card_style"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_toEndOf="@+id/cardview1"
+                        android:layout_toRightOf="@+id/cardview1"
+                        app:cardBackgroundColor="@color/mountain_gren">
+
+                        <ImageView
+                            android:id="@+id/input_cameraImage1back"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/text_your_photo"
+                            android:src="@drawable/camera_icon"
+                            android:tint="@color/white" />
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_style"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentPadding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Parking Bill" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview2"
+                        style="@style/card_style"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        app:cardBackgroundColor="@color/mountain_gren">
+
+                        <ImageView
+                            android:id="@+id/input_cameraImage2"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/text_your_photo"
+                            android:src="@drawable/camera_icon"
+                            android:tint="@color/white" />
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ParkingAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:inputType="number"
+                        app:backgroundTint="@color/mountain_gren" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_style"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentPadding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Permit Bill" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview3"
+                        style="@style/card_style"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        app:cardBackgroundColor="@color/mountain_gren">
+
+                        <ImageView
+                            android:id="@+id/input_cameraImage3"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/text_your_photo"
+                            android:src="@drawable/camera_icon"
+                            android:tint="@color/white" />
+
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/PermitAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:inputType="number"
+                        app:backgroundTint="@color/mountain_gren" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_style"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentPadding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Tollgate Bill" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview4"
+                        style="@style/card_style"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        app:cardBackgroundColor="@color/mountain_gren">
+
+                        <ImageView
+                            android:id="@+id/input_cameraImag4"
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/text_your_photo"
+                            android:src="@drawable/camera_icon"
+                            android:tint="@color/white" />
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/TollAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Amount"
+                        android:inputType="number"
+                        app:backgroundTint="@color/mountain_gren" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            style="@style/card_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="5dp"
+            app:cardBackgroundColor="@color/mountain_gren"
+            app:contentPadding="10dp">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/OnSubmit"
                 android:gravity="center"
-
-                android:text="@string/click_to_take_tripsheet_bill_picture" />
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardview1"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/cardview1back"
-                app:cardBackgroundColor="@color/cardview_dark_background"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/input_cameraImage1"
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/text_your_photo"
-                    android:src="@drawable/camera_icon" />
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardview1back"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                app:cardBackgroundColor="@color/cardview_dark_background"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/input_cameraImage1back"
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/text_your_photo"
-                    android:src="@drawable/camera_icon" />
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <EditText
-                android:id="@+id/ParkingAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/enter_parking_bill_amount" />
-        </android.support.design.widget.TextInputLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:ems="13"
-                android:gravity="fill"
-                android:text="@string/click_to_take_parking_bill_picture"
-                android:textColor="@color/golden_yellow" />
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardview2"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                app:cardBackgroundColor="@color/cardview_dark_background"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/input_cameraImage2"
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/text_your_photo"
-                    android:src="@drawable/camera_icon" />
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <EditText
-                android:id="@+id/PermitAmount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/enter_permit_bill_amount" />
-        </android.support.design.widget.TextInputLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:ems="13"
-                android:gravity="fill"
-                android:textColor="@color/golden_yellow"
-                android:text="@string/click_to_take_permit_bill_picture" />
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardview3"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                app:cardBackgroundColor="@color/cardview_dark_background"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/input_cameraImage3"
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/text_your_photo"
-                    android:src="@drawable/camera_icon" />
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <EditText
-                android:id="@+id/TollAmount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/enter_tollgate_bill_amount" />
-        </android.support.design.widget.TextInputLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:ems="13"
-                android:gravity="fill"
-
-                android:text="@string/click_to_take_toll_gate_bill_picture" />
-
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardview4"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                app:cardBackgroundColor="@color/cardview_dark_background"
-                app:cardCornerRadius="10dp">
-
-                <ImageView
-                    android:id="@+id/input_cameraImag4"
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/text_your_photo"
-                    android:src="@drawable/camera_icon" />
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
-
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/OnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/submit"
-            android:textSize="14sp" />
-
+                android:text="@string/submit" />
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
 </ScrollView>

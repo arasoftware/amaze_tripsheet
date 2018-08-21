@@ -21,6 +21,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -32,6 +33,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -77,6 +79,10 @@ public class TripsheetClose extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private String progressMessage;
 
+    @BindView(R.id.notify_user_card)
+    CardView notify_userCard;
+    @BindView(R.id.Submitclose_card)
+    CardView submit_close_card;
     @BindView(R.id.Tripclode)
     ScrollView sv;
     @BindView(R.id.textview_tripnoClose)
@@ -104,7 +110,7 @@ public class TripsheetClose extends AppCompatActivity {
     @BindView(R.id.mobileNumberClose)
     TextView mobnoClose;
     @BindView(R.id.closingdate_layout)
-    RelativeLayout closing_date_layout;
+    LinearLayout closing_date_layout;
     @BindView(R.id.closingdate)
     TextView closingdate;
     String a, b;
@@ -181,7 +187,7 @@ public class TripsheetClose extends AppCompatActivity {
         if (!isNetworkAvailable()) {
             showSnackbar("PLease check Your network connection");
         }
-        SubmitClose.setOnClickListener(new View.OnClickListener() {
+        submit_close_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 submitMethodd();
@@ -191,7 +197,7 @@ public class TripsheetClose extends AppCompatActivity {
 
         initEdittextFocus();
 
-        notifying_user.setOnClickListener(new View.OnClickListener() {
+        notify_userCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

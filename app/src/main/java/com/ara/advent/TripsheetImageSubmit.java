@@ -95,6 +95,8 @@ public class TripsheetImageSubmit extends AppCompatActivity {
     ImageView input_image1back;
     @BindView(R.id.closedate)
     TextView closedate;
+    @BindView(R.id.OnSubmit_card)
+    CardView onsubmit_card;
 
     String a;
     OncallTsModel oncallTsModel;
@@ -111,8 +113,8 @@ public class TripsheetImageSubmit extends AppCompatActivity {
         oncallTsModel = new OncallTsModel();
 
         SharedPreferences sharedPreferences1 = getSharedPreferences("user", MODE_PRIVATE);
-        String  id = sharedPreferences1.getString("uid", "");
-        Log.e(TAG,"id -- "+id);
+        String id = sharedPreferences1.getString("uid", "");
+        Log.e(TAG, "id -- " + id);
 
         SharedPreferences sharedPreferences = getSharedPreferences("submit", MODE_PRIVATE);
         a = sharedPreferences.getString("tripsheetid", "");
@@ -123,7 +125,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
         String f = sharedPreferences.getString("closekm", "");
         String g = sharedPreferences.getString("totkm", "");
         String h = sharedPreferences.getString("tottime", "");
-        String i = sharedPreferences.getString("closedate","");
+        String i = sharedPreferences.getString("closedate", "");
         tripno.setText(b);
         tripdate.setText(c);
         closedate.setText(i);
@@ -134,12 +136,12 @@ public class TripsheetImageSubmit extends AppCompatActivity {
         oncallTsModel.setTotalTime(h);
         oncallTsModel.setTotalkilometer(g);
         oncallTsModel.setUserid(id);
-        Log.e(TAG,"total kilometer " + g);
+        Log.e(TAG, "total kilometer " + g);
         oncallTsModel.setClosingDate(i);
         if (!isNetworkAvailable()) {
             showSnackbar("Something went wrong ,Please check your network connection");
         }
-        OnSubmit_button.setOnClickListener(new View.OnClickListener() {
+        onsubmit_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OnSubmit_buttonMethod();

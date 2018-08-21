@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="5dp"
+                android:onClick="login_onClick"
                 app:cardBackgroundColor="@color/mountain_gren"
                 app:contentPadding="5dp">
 
@@ -95,7 +96,6 @@
                         android:layout_width="wrap_content"
                         android:gravity="right|center"
                         android:layout_height="match_parent"
-                        android:onClick="login_onClick"
                         android:text="@string/login" />
                     <ImageView
                         android:layout_weight="1"

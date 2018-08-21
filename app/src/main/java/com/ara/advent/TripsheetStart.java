@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -69,7 +70,8 @@ public class TripsheetStart extends AppCompatActivity {
     TextView cus_Address;
     @BindView(R.id.tripVehName)
     TextView vehicle_name;
-
+    @BindView(R.id.submit_card)
+    CardView submit_card;
 
     String a,b;
     @BindView(R.id.Submit)
@@ -139,7 +141,7 @@ public class TripsheetStart extends AppCompatActivity {
 
             showSnackbar("No connection");
         }
-        Submit.setOnClickListener(new View.OnClickListener() {
+        submit_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 submitMethodd();

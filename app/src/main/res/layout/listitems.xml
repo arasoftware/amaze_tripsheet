@@ -12,8 +12,13 @@
         android:clickable="false"
         android:focusable="false"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="7dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_margin="1dp"
         app:cardElevation="7dp"
+        app:cardCornerRadius="7dp"
+        android:foreground="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

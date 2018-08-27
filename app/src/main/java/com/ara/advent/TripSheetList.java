@@ -45,8 +45,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.ara.advent.utils.AppConstants.DRIVER_TYPE;
+import static com.ara.advent.utils.AppConstants.DROP_ADDRESS;
 import static com.ara.advent.utils.AppConstants.PARAM_USER_ID;
 import static com.ara.advent.utils.AppConstants.PARAM_USER_NAME;
+import static com.ara.advent.utils.AppConstants.PICKUP_ADDRESS;
 import static com.ara.advent.utils.AppConstants.PICKUP_TIME;
 import static com.ara.advent.utils.AppConstants.PREFERENCE_NAME;
 import static com.ara.advent.utils.AppConstants.PREF_TYPE;
@@ -186,9 +188,11 @@ public class TripSheetList extends AppCompatActivity {
                     startActivity(new Intent(TripSheetList.this,TripsheetStart.class));
                     finish();
                 }*/
+                Intent intent=new Intent(TripSheetList.this, TripsheetStart.class);
+                intent.putExtra(PICKUP_ADDRESS, "Thirumangalam Metro Station, 2nd Avenue, L Block, Kurinji Colony, Anna Nagar, Chennai, Tamil Nadu");
+                intent.putExtra(DROP_ADDRESS, "Ampa Skywalk, 1, Nelson Manickam Rd, Amijikarai, Chennai, Tamil Nadu 600029");
 
-
-                startActivity(new Intent(TripSheetList.this, TripsheetStart.class));
+                startActivity(intent);
                 finish();
             }
         });

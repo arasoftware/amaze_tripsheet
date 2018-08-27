@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignatureActivity">
+
+    <LinearLayout
+        android:id="@+id/sign_details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/amaze_logo_space"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sign_customer_trip_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_name" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sign_text_sign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sign_details_layout"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:text="Sign below" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/sign_save"
+        android:layout_below="@id/sign_text_sign"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/drawable_border">
+
+        <com.github.gcacace.signaturepad.views.SignaturePad xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/signature_pad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            app:penColor="@android:color/black" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_save"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/amaze_logo_space"
+        android:text="Save" />
+
+</RelativeLayout>

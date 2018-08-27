@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/maps_details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/amaze_logo_space"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/maps_customer_trip_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_name" />
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/maps_distance_layout"
+        android:layout_below="@id/maps_details_layout"
+        android:layout_centerInParent="true"
+        tools:context=".MapsActivity" />
+
+    <LinearLayout
+        android:id="@+id/maps_distance_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="@dimen/amaze_logo_space"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/maps_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_name"
+            android:textColor="@color/black"
+            android:textSize="7pt" />
+
+        <TextView
+            android:id="@+id/maps_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_name"
+            android:textColor="@color/black"
+            android:textSize="7pt" />
+
+        <Button
+            android:id="@+id/maps_stop_duty"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stop Duty" />
+    </LinearLayout>
+
+</RelativeLayout>

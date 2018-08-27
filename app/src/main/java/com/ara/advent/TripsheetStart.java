@@ -20,7 +20,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,17 +29,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.ara.advent.http.MySingleton;
+import com.ara.advent.utils.ApiService;
 import com.ara.advent.utils.AppConstants;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.ara.advent.utils.AppConstants.CUSTOMER_NAME;
+import static com.ara.advent.utils.AppConstants.DROP_ADDRESS;
+import static com.ara.advent.utils.AppConstants.PICKUP_ADDRESS;
 import static com.ara.advent.utils.AppConstants.PICKUP_TIME;
 import static com.ara.advent.utils.AppConstants.PREFERENCE_NAME;
+import static com.ara.advent.utils.AppConstants.TRIPID;
 
 public class TripsheetStart extends AppCompatActivity {
 
@@ -73,7 +76,7 @@ public class TripsheetStart extends AppCompatActivity {
     @BindView(R.id.submit_card)
     CardView submit_card;
 
-    String a,b;
+    String a, b;
     @BindView(R.id.Submit)
     Button Submit;
 
@@ -92,7 +95,11 @@ public class TripsheetStart extends AppCompatActivity {
             startActivity(new Intent(TripsheetStart.this, TripsheetClose.class));
             finish();
         }*/
-
+        Intent intent=getIntent();
+        String fromAddress=intent.getStringExtra(PICKUP_ADDRESS);
+        String toAddress=intent.getStringExtra(DROP_ADDRESS);
+        ApiService.newInstance().getDistance(fromAddress, toAddress);
+        ApiService.newInstance().getDirection(fromAddress, toAddress);
 
         SharedPreferences sharedPreferences = getSharedPreferences("submit", MODE_PRIVATE);
         a = sharedPreferences.getString("tripsheetid", "");
@@ -101,7 +108,7 @@ public class TripsheetStart extends AppCompatActivity {
         String d = sharedPreferences.getString("tripsheetcustomername", "");
         String e = sharedPreferences.getString("tripsheetMCname", "");
         String f = sharedPreferences.getString("tripsheetreportto", "");
-        String strPickupTime=sharedPreferences.getString(PICKUP_TIME,"");
+        String strPickupTime = sharedPreferences.getString(PICKUP_TIME, "");
         String j = sharedPreferences.getString("trioppshettstkm", "");
         String h = sharedPreferences.getString("tripshetsttime", "");
         String i = sharedPreferences.getString("tirpsheetcusmobno", "");
@@ -128,11 +135,11 @@ public class TripsheetStart extends AppCompatActivity {
 
         SharedPreferences sharedPreferences1 = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
         String ok = sharedPreferences1.getString("started", "");
-        String tid = sharedPreferences1.getString("tripidS","");
-        if (ok.equalsIgnoreCase("ok") && tid.equalsIgnoreCase(b)) {
-            startActivity(new Intent(TripsheetStart.this, TripsheetClose.class));
-            finish();
-        }
+        String tid = sharedPreferences1.getString("tripidS", "");
+//        if (ok.equalsIgnoreCase("ok") && tid.equalsIgnoreCase(b)) {
+//            startActivity(new Intent(TripsheetStart.this, TripsheetClose.class));
+//            finish();
+//        }
 
         Log.e("TAG", "------------------------------------------------------" + a);
         if (isNetworkAvailable()) {
@@ -277,10 +284,14 @@ public class TripsheetStart extends AppCompatActivity {
                     SharedPreferences ses = getSharedPreferences(PREFERENCE_NAME, MODE_PRIVATE);
                     SharedPreferences.Editor ed = ses.edit();
                     ed.putString("started", "ok");
-                    ed.putString("tripidS",b);
+                    ed.putString("tripidS", b);
                     ed.commit();
-                    startActivity(new Intent(TripsheetStart.this, TripsheetClose.class)
-                            .putExtra("name", "TripSheet Added successfully"));
+                    Intent intent = new Intent(TripsheetStart.this, MapsActivity.class);
+                    intent.putExtra(TRIPID,trino.getText().toString());
+                    intent.putExtra(CUSTOMER_NAME,customer.getText().toString());
+                    intent.putExtra("name", "TripSheet Added successfully");
+
+                    startActivity(intent);
                     finish();
 
 

@@ -75,5 +75,6 @@
     <string name="pick_up_time">Pickup Time</string>
     <string name="Please_enter_valid_Closing_Date">Please Enter Valid Closing Date</string>
     <string name="Starting_date">Starting date</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

@@ -15,29 +15,11 @@
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentPadding="5dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/pin"
-                    android:tint="@color/mountain_gren" />
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0.1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/mountain_gren" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -70,8 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/no"
-                        android:textColor="@color/graly" />
+                        android:text="@string/no"/>
 
                     <TextView
                         android:id="@+id/textview_tripdatesubmit"
@@ -82,8 +63,7 @@
                         android:layout_marginRight="7dp"
                         android:gravity="center"
                         android:paddingRight="10dp"
-                        android:text="@string/dd_mm_yy"
-                        android:textColor="@color/graly" />
+                        android:text="@string/dd_mm_yy" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -105,8 +85,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="18dp"
                         android:gravity="center"
-                        android:text="@string/starting_date"
-                        android:textColor="@color/graly" />
+                        android:text="@string/starting_date"/>
                 </RelativeLayout>
 
                 <TextView
@@ -120,22 +99,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/customer_name"
-                    android:textColor="@color/graly" />
+                    android:text="@string/customer_name" />
 
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:contentPadding="5dp">
-
-            <LinearLayout
+             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -149,13 +119,6 @@
                         android:layout_height="wrap_content"
                         android:text="TripSheet Bill" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/pin"
-                        android:tint="@color/mountain_gren" />
-
                 </RelativeLayout>
 
 
@@ -165,12 +128,6 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cardview1"
-                        style="@style/card_style"
-                        android:layout_width="80dp"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/mountain_gren">
 
                         <ImageView
                             android:id="@+id/input_cameraImage1"
@@ -180,17 +137,6 @@
                             android:contentDescription="@string/text_your_photo"
                             android:src="@drawable/camera_icon"
                             android:tint="@color/white" />
-                    </android.support.v7.widget.CardView>
-
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cardview1back"
-                        style="@style/card_style"
-                        android:layout_width="80dp"
-                        android:layout_height="70dp"
-                        android:layout_marginLeft="50dp"
-                        android:layout_toEndOf="@+id/cardview1"
-                        android:layout_toRightOf="@+id/cardview1"
-                        app:cardBackgroundColor="@color/mountain_gren">
 
                         <ImageView
                             android:id="@+id/input_cameraImage1back"
@@ -200,24 +146,15 @@
                             android:contentDescription="@string/text_your_photo"
                             android:src="@drawable/camera_icon"
                             android:tint="@color/white" />
-                    </android.support.v7.widget.CardView>
+
                 </RelativeLayout>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:contentPadding="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -226,13 +163,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Parking Bill" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/pin"
-                        android:tint="@color/mountain_gren" />
 
                 </RelativeLayout>
 
@@ -243,12 +173,6 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cardview2"
-                        style="@style/card_style"
-                        android:layout_width="80dp"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/mountain_gren">
 
                         <ImageView
                             android:id="@+id/input_cameraImage2"
@@ -258,13 +182,9 @@
                             android:contentDescription="@string/text_your_photo"
                             android:src="@drawable/camera_icon"
                             android:tint="@color/white" />
-                    </android.support.v7.widget.CardView>
+
                 </RelativeLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    style="@style/TextLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/ParkingAmount"
@@ -273,23 +193,13 @@
                         android:hint="Amount"
                         android:inputType="number"
                         app:backgroundTint="@color/mountain_gren" />
-                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:contentPadding="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -301,13 +211,6 @@
                         android:text="Permit Bill" />
 
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/pin"
-                        android:tint="@color/mountain_gren" />
-
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -316,12 +219,6 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cardview3"
-                        style="@style/card_style"
-                        android:layout_width="80dp"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/mountain_gren">
 
                         <ImageView
                             android:id="@+id/input_cameraImage3"
@@ -332,7 +229,6 @@
                             android:src="@drawable/camera_icon"
                             android:tint="@color/white" />
 
-                    </android.support.v7.widget.CardView>
                 </RelativeLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -350,20 +246,11 @@
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:contentPadding="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -375,13 +262,6 @@
                         android:text="Tollgate Bill" />
 
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/pin"
-                        android:tint="@color/mountain_gren" />
-
                 </RelativeLayout>
 
 
@@ -391,12 +271,6 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center">
 
-                    <android.support.v7.widget.CardView
-                        android:id="@+id/cardview4"
-                        style="@style/card_style"
-                        android:layout_width="80dp"
-                        android:layout_height="70dp"
-                        app:cardBackgroundColor="@color/mountain_gren">
 
                         <ImageView
                             android:id="@+id/input_cameraImag4"
@@ -406,8 +280,8 @@
                             android:contentDescription="@string/text_your_photo"
                             android:src="@drawable/camera_icon"
                             android:tint="@color/white" />
-                    </android.support.v7.widget.CardView>
-                </RelativeLayout>
+
+</RelativeLayout>
 
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextLabel"
@@ -424,17 +298,6 @@
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/OnSubmit_card"
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="5dp"
-            app:cardBackgroundColor="@color/mountain_gren"
-            app:contentPadding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -447,7 +310,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:enabled="false"
                     android:gravity="right|center"
                     android:text="@string/submit" />
 
@@ -458,7 +320,6 @@
                     android:layout_weight="1"
                     android:src="@drawable/arrow" />
             </LinearLayout>
-        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 

@@ -15,326 +15,238 @@
         android:orientation="vertical">
 
 
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentPadding="5dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/pin"
-                    android:tint="@color/mountain_gren"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0.1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/mountain_gren"/>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/booking_id" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="18dp"
-                        android:gravity="center"
-                        android:text="@string/Starting_date" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-
-                    >
-
-                    <TextView
-
-                        android:id="@+id/textview_tripno"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/no"
-                        android:textColor="@color/graly" />
-
-                    <TextView
-                        android:id="@+id/textview_tripdate"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="7dp"
-                        android:gravity="center"
-                        android:paddingRight="10dp"
-                        android:text="@string/dd_mm_yy"
-                        android:textColor="@color/graly" />
-                </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:padding="5dp">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/customer_name" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/booking_id" />
 
                 <TextView
-                    android:id="@+id/textview_customer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/customer_name"
-                    android:textColor="@color/graly" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="18dp"
+                    android:gravity="center"
+                    android:text="@string/Starting_date" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Booking Person  " />
 
-                <TextView
-                    android:id="@+id/textview_customermc"
+                    android:id="@+id/textview_tripno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="@string/customer_multi_customer_name"
+                    android:text="@string/no"
                     android:textColor="@color/graly" />
 
-
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/report_to" />
+                    android:id="@+id/textview_tripdate"
 
-                <TextView
-                    android:id="@+id/textview_customerREPORT"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/report_to"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="7dp"
+                    android:gravity="center"
+                    android:paddingRight="10dp"
+                    android:text="@string/dd_mm_yy"
                     android:textColor="@color/graly" />
+            </RelativeLayout>
 
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="@string/mobile_no" />
-
-                    <TextView
-                        android:id="@+id/mobileNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="28dp"
-                        android:gravity="center"
-                        android:text="1234567890"
-                        android:textColor="@color/graly" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:shadowColor="@color/golden_yellow"
-                        android:text="@string/pick_up_time" />
-
-                    <TextView
-                        android:id="@+id/pick_up_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="28dp"
-                        android:gravity="center"
-                        android:text="22:33"
-                        android:textColor="@color/graly" />
-                </RelativeLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:shadowColor="@color/iron"
-                    android:text="@string/address" />
-
-                <TextView
-                    android:id="@+id/customer_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/address"
-                    android:textColor="@color/graly" />
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:shadowColor="@color/iron"
-                        android:text="@string/Vehicle_name" />
-
-                    <TextView
-                        android:id="@+id/tripVehName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="28dp"
-                        android:gravity="center"
-                        android:text="sample"
-                        android:textColor="@color/graly" />
-                </RelativeLayout>
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:visibility="gone"
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:contentPadding="5dp">
-
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/pin"
-                    android:tint="@color/mountain_gren"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0.1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/mountain_gren"/>
-                <android.support.design.widget.TextInputLayout
-                    style="@style/TextLabel"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
 
-                    <EditText
-                        android:id="@+id/textview_startingKm"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/enter_starting_kilometer"
-                        android:inputType="number"
-                        android:selectAllOnFocus="true" />
-                </android.support.design.widget.TextInputLayout>
+            </TableRow>
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:orientation="horizontal"
-                    android:weightSum="4">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="@string/starting_time" />
-
-                    <EditText
-                        android:id="@+id/textview_startingtimeH"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:hint="@string/hh"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:selectAllOnFocus="true" />
-
-                    <TextView
-                        android:id="@+id/st"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="0"
-                        android:text=":" />
-
-                    <EditText
-                        android:id="@+id/textview_starngtimeM"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:hint="@string/mm"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:selectAllOnFocus="true" />
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            style="@style/card_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/submit_card"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="5dp"
-            app:cardBackgroundColor="@color/mountain_gren"
-            app:contentPadding="10dp">
-
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/customer_name" />
+
+            <TextView
+                android:id="@+id/textview_customer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="@string/customer_name"
+                android:textColor="@color/graly" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
+
+            </TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Booking Person" />
+
+            <TextView
+                android:id="@+id/textview_customermc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:padding="5dp"
+                android:text="Booking Person"
+                android:textColor="@color/graly" />
 
-                <Button
-                    android:id="@+id/Submit"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
+
+            </TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/report_to" />
+
+            <TextView
+                android:id="@+id/textview_customerREPORT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="@string/report_to"
+                android:textColor="@color/graly" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
+
+            </TableRow>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:padding="5dp">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawableRight="@drawable/arrow"
                     android:gravity="center"
-                    android:text="@string/submit" />
+                    android:shadowColor="@color/golden_yellow"
+                    android:text="Reporting Time" />
 
+                <TextView
+                    android:id="@+id/reportingTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="28dp"
+                    android:gravity="center"
+                    android:text="22:33"
+                    android:textColor="@color/graly" />
+            </RelativeLayout>
 
-            </LinearLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
 
-        </android.support.v7.widget.CardView>
+            </TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:shadowColor="@color/iron"
+                android:text="Pick Up Place" />
+
+            <TextView
+                android:id="@+id/customer_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="Place"
+                android:textColor="@color/graly" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
+
+            </TableRow>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:shadowColor="@color/iron"
+                    android:text="@string/Vehicle_name" />
+
+                <TextView
+                    android:id="@+id/tripVehName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="28dp"
+                    android:gravity="center"
+                    android:text="sample"
+                    android:textColor="@color/graly" />
+            </RelativeLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/gray">
+
+            </TableRow>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/green"
+            android:ems="10"
+            android:padding="10dp"
+            android:text="Start Trip" />
+
     </LinearLayout>
 </ScrollView>

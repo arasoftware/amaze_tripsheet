@@ -67,14 +67,6 @@ public class TripsheetImageSubmit extends AppCompatActivity {
     ScrollView OntripLayout;
     @BindView(R.id.OnSubmit)
     Button OnSubmit_button;
-    @BindView(R.id.cardview1)
-    CardView CardInput_image1;
-    @BindView(R.id.cardview2)
-    CardView CardInput_image2;
-    @BindView(R.id.cardview3)
-    CardView CardInput_image3;
-    @BindView(R.id.cardview4)
-    CardView CardInput_image4;
     @BindView(R.id.input_cameraImage1)
     ImageView input_image1;
     @BindView(R.id.input_cameraImage2)
@@ -89,14 +81,10 @@ public class TripsheetImageSubmit extends AppCompatActivity {
     EditText permitAmount;
     @BindView(R.id.TollAmount)
     EditText tollgateAmount;
-    @BindView(R.id.cardview1back)
-    CardView CardInput_image1back;
     @BindView(R.id.input_cameraImage1back)
     ImageView input_image1back;
     @BindView(R.id.closedate)
     TextView closedate;
-    @BindView(R.id.OnSubmit_card)
-    CardView onsubmit_card;
 
     String a;
     OncallTsModel oncallTsModel;
@@ -141,40 +129,40 @@ public class TripsheetImageSubmit extends AppCompatActivity {
         if (!isNetworkAvailable()) {
             showSnackbar("Something went wrong ,Please check your network connection");
         }
-        onsubmit_card.setOnClickListener(new View.OnClickListener() {
+        OnSubmit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OnSubmit_buttonMethod();
             }
         });
 
-        CardInput_image1.setOnClickListener(new View.OnClickListener() {
+        input_image1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 requestPermissionForCamera(REQUEST_TAKE_IMAGE_ONE);
             }
         });
 
-        CardInput_image2.setOnClickListener(new View.OnClickListener() {
+        input_image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 requestPermissionForCamera(REQUEST_TAKE_IMAGE_TWO);
             }
         });
-        CardInput_image3.setOnClickListener(new View.OnClickListener() {
+        input_image3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 requestPermissionForCamera(REQUEST_TAKE_IMAGE_THREE);
             }
         });
 
-        CardInput_image4.setOnClickListener(new View.OnClickListener() {
+        input_image4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requestPermissionForCamera(REQUEST_TAKE_IMAGE_FOUR);
             }
         });
-        CardInput_image1back.setOnClickListener(new View.OnClickListener() {
+        input_image1back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requestPermissionForCamera(REQUEST_TAKE_IMAGE_ONE_BACK);
@@ -264,7 +252,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("OncallBooked", "success");
                         editor.commit();
-                        startActivity(new Intent(TripsheetImageSubmit.this, TripSheetList.class));
+                        startActivity(new Intent(TripsheetImageSubmit.this, MainActivity.class));
                         finish();
                     }
                 }
@@ -488,7 +476,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(TripsheetImageSubmit.this, TripSheetList.class));
+        startActivity(new Intent(TripsheetImageSubmit.this, MainActivity.class));
         finish();
         super.onBackPressed();
     }

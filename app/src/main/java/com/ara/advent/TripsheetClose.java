@@ -1,24 +1,14 @@
 package com.ara.advent;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -32,11 +22,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,29 +34,19 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.ara.advent.http.MySingleton;
 import com.ara.advent.models.OncallTsModel;
-import com.ara.advent.models.TripsheetListModel;
 import com.ara.advent.utils.AppConstants;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import butterknife.BindBitmap;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.ara.advent.utils.AppConstants.MY_CAMERA_REQUEST_CODE;
 import static com.ara.advent.utils.AppConstants.PREFERENCE_NAME;
 
 public class TripsheetClose extends AppCompatActivity {
@@ -426,7 +403,7 @@ public class TripsheetClose extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        startActivity(new Intent(TripsheetClose.this, TripSheetList.class));
+        startActivity(new Intent(TripsheetClose.this, MainActivity.class));
         finish();
 
 

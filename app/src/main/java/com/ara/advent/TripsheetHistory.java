@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -32,7 +31,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.IllegalFormatCodePointException;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -190,7 +188,7 @@ public class TripsheetHistory extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(TripsheetHistory.this,TripSheetList.class));
+        startActivity(new Intent(TripsheetHistory.this,MainActivity.class));
         finish();
     }
 }

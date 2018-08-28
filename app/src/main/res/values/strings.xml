@@ -39,7 +39,7 @@
     <string name="check_in_out">Check In / Out</string>
     <string name="contract_trip_sheet">Contract Trip Sheet</string>
     <string name="click_here_to_notify_user">Click Here To Notify ! User.</string>
-    <string name="booking_id">Booking Id</string>
+    <string name="booking_id">Booking No</string>
     <string name="date">Closing Date</string>
     <string name="starting_time">Starting Time</string>
     <string name="hh_mm">HH/MM</string>
@@ -55,7 +55,7 @@
     <string name="pick_a_vehicle_type">Pick a Vehicle Type :</string>
     <string name="address">Address</string>
     <string name="mobile_no">Mobile No </string>
-    <string name="report_to">Report Person</string>
+    <string name="report_to">Reporting Person</string>
     <string name="customer_multi_customer_name">customer multi customer name</string>
     <string name="dd_mm_yy">DD/MM/YY</string>
     <string name="no">NO</string>
@@ -74,7 +74,8 @@
     <string name="Vehicle_name">Vehicle Name</string>
     <string name="pick_up_time">Pickup Time</string>
     <string name="Please_enter_valid_Closing_Date">Please Enter Valid Closing Date</string>
-    <string name="Starting_date">Starting date</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="Starting_date">Booking date</string>
+    <string name="booking_no_12345678">booking NO : 12345678</string>
+    <string name="title_activity_map">Map</string>
 
 </resources>

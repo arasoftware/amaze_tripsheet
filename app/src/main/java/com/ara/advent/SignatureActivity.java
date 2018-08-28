@@ -1,39 +1,25 @@
 package com.ara.advent;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.os.Bundle;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import static com.ara.advent.utils.AppConstants.CUSTOMER_NAME;
-import static com.ara.advent.utils.AppConstants.TRIPID;
+import butterknife.BindView;
 
 public class SignatureActivity extends AppCompatActivity {
+    @BindView(R.id.scrol)
+    ScrollView container;
+    @BindView(R.id.textview_tripno)
+    TextView trino;
+    @BindView(R.id.textview_tripdate)
+    TextView tripdate;
+    @BindView(R.id.textview_customer)
+    TextView customer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signature);
-
-        TextView customerAndTripNo = (TextView) findViewById(R.id.sign_customer_trip_no);
-
-        Button signSave = (Button) findViewById(R.id.sign_save);
-
-        final Intent intent = getIntent();
-        String customerName = intent.getStringExtra(CUSTOMER_NAME);
-        String tripNo = intent.getStringExtra(TRIPID);
-
-        customerAndTripNo.setText("Customer Name: " + customerName + "   Trip No:  " + tripNo);
-
-        signSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(SignatureActivity.this, TripsheetImageSubmit.class);
-                startActivity(intent1);
-                finish();
-            }
-        });
     }
 }

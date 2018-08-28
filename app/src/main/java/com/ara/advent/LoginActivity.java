@@ -28,9 +28,6 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.ara.advent.http.HttpCaller;
-import com.ara.advent.http.HttpRequest;
-import com.ara.advent.http.HttpResponse;
 import com.ara.advent.http.MySingleton;
 import com.ara.advent.models.User;
 import com.ara.advent.utils.AppConstants;
@@ -41,7 +38,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -49,17 +45,15 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.ara.advent.utils.AppConstants.CHECK_IN_DATE;
 import static com.ara.advent.utils.AppConstants.DRIVER_TYPE;
-import static com.ara.advent.utils.AppConstants.PARAM_CHECK_IN;
-import static com.ara.advent.utils.AppConstants.PARAM_CHECK_OUT;
 import static com.ara.advent.utils.AppConstants.PARAM_PASSWORD;
-import static com.ara.advent.utils.AppConstants.PARAM_USER_ID;
 import static com.ara.advent.utils.AppConstants.PARAM_USER_NAME;
-import static com.ara.advent.utils.AppConstants.PREFERENCE_NAME;
-import static com.ara.advent.utils.AppConstants.PREF_TYPE;
+import static com.ara.advent.utils.AppConstants.PASSWORD;
+import static com.ara.advent.utils.AppConstants.PREFNAME;
 import static com.ara.advent.utils.AppConstants.SUCCESS_MESSAGE;
-import static com.ara.advent.utils.AppConstants.toAppTimeFormation;
+import static com.ara.advent.utils.AppConstants.TYPE;
+import static com.ara.advent.utils.AppConstants.USERNAME;
+import static com.ara.advent.utils.AppConstants.USER_ID;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
@@ -88,29 +82,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        type = DRIVER_TYPE;
-        SharedPreferences sharedPreferences = getSharedPreferences("user",MODE_PRIVATE);
-        String userSession = sharedPreferences.getString("uid","");
-        if (userSession != ""){
-            startActivity(new Intent(LoginActivity.this,TripSheetList.class));
-            finish();
+        if (!isNetworkAvailable()) {
+            AppConstants.showSnackbar(_rootScrollView, "PLease check your Network connection");
         }
-
-        multilanguage.setOnClickListener(new View.OnClickListener() {
+        type = DRIVER_TYPE;
+        _loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loginVolley();
+            }
+        });
 
-                setLanguage("ta");
-                Toast.makeText(LoginActivity.this, "you selected tamil", Toast.LENGTH_SHORT).show();
-            }
-        });
-        multilanguage1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setLanguage("en");
-                Toast.makeText(LoginActivity.this, "you selected english language", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     protected void setLanguage(String language) {
@@ -132,52 +114,7 @@ public class LoginActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 
     }
-/*
 
-    public void login() {
-        Log.d(TAG, "Login");
-
-        if (!validate()) {
-            onLoginFailed(null);
-            return;
-        }
-        if (!isNetworkAvailable()) {
-            showSnackbar("PLease Check Your Netwok Connection");
-            return;
-        }
-        _loginButton.setEnabled(false);
-        type = DRIVER_TYPE;
-        User user = new User();
-        user.setUserName(_login_userName.getText().toString());
-        user.setPassword(_passwordText.getText().toString());
-        SharedPreferences sharedPreferences = getSharedPreferences("logindetails", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("user", _login_userName.getText().toString());
-        editor.putString("pass", _passwordText.getText().toString());
-        editor.commit();
-        _loginButton.setEnabled(true);
-
-        HttpRequest request = new HttpRequest(AppConstants.getLoginAction());
-        request.setRequestBody(user.toRequestBody(type));
-        try {
-            new HttpCaller(this, "Validating User") {
-                @Override
-                public void onResponse(HttpResponse response) {
-                    super.onResponse(response);
-                    if (response.getStatus() == HttpResponse.ERROR) {
-                        onLoginFailed(response);
-                    } else {
-                        onLoginSuccess(response);
-
-                    }
-                }
-            }.execute(request);
-        } catch (Exception exception) {
-            Log.e(TAG, exception.getMessage(), exception);
-            showSnackbar(exception.getMessage());
-        }
-    }
-*/
 
     public boolean validate() {
         boolean valid = true;
@@ -223,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!isNetworkAvailable()) {
             progressDialog.dismiss();
-            showSnackbar("Please check Your network connection");
+            AppConstants.showSnackbar(_rootScrollView,"Please check Your network connection");
             return;
         }
         if (!validate()) {
@@ -247,29 +184,29 @@ public class LoginActivity extends AppCompatActivity {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         jsonObject = jsonArray.getJSONObject(i);
                         login = jsonObject.getString("login");
+                        username = jsonObject.getString(USERNAME);
+                        userid = jsonObject.getString(USER_ID);
 
                     }
 
                     if (!login.equalsIgnoreCase(SUCCESS_MESSAGE)) {
                         progressDialog.dismiss();
-                        showSnackbar("PLease Check Your Username and Password ");
+                        AppConstants.showSnackbar(_rootScrollView,"PLease Check Your Username and Password ");
                         Toast.makeText(LoginActivity.this, "You are enter a Wrong Password", Toast.LENGTH_SHORT).show();
                     } else {
                         progressDialog.dismiss();
-                        username = jsonObject.getString("username");
-                        userid = jsonObject.getString("userid");
-                        SharedPreferences sharedPreferences1 = getSharedPreferences("user", MODE_PRIVATE);
+                        SharedPreferences sharedPreferences1 = getSharedPreferences(PREFNAME, MODE_PRIVATE);
                         SharedPreferences.Editor edit = sharedPreferences1.edit();
-                        edit.putString("username", username);
-                        edit.putString("uid", userid);
+                        edit.putString(USERNAME, username);
+                        edit.putString(USER_ID, userid);
                         edit.commit();
-                        startActivity(new Intent(LoginActivity.this, TripSheetList.class));
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     }
 
                 } catch (JSONException ex) {
                     progressDialog.dismiss();
-                    Log.e(TAG, "Json lgin exception = " + ex);
+                    Log.e(TAG, "Json login exception = " + ex);
                 }
             }
         }, new Response.ErrorListener() {
@@ -278,15 +215,16 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.e(TAG, "Login Error Response : " + error);
 
+
             }
         }) {
 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map map = new HashMap();
+                Map<String,String> map = new HashMap();
                 map.put(PARAM_USER_NAME, _login_userName.getText().toString());
                 map.put(PARAM_PASSWORD, _passwordText.getText().toString());
-                map.put("type", "2");
+                map.put(TYPE, String.valueOf(AppConstants.type));
                 return map;
             }
         };
@@ -298,63 +236,6 @@ public class LoginActivity extends AppCompatActivity {
         stringRequest.setRetryPolicy(policy);
         MySingleton.getInstance(this).addToRequestQueue(stringRequest);
     }
-/*
-
-    public void onLoginSuccess(HttpResponse response) {
-
-        try {
-            JSONArray jsonArray = new JSONArray(response.getMesssage());
-            JSONObject jsonObject = jsonArray.getJSONObject(0);
-            _loginButton.setEnabled(true);
-            if (jsonObject.getString(AppConstants.LOGIN_RESULT)
-                    .compareToIgnoreCase(SUCCESS_MESSAGE) != 0) {
-                Toast.makeText(getBaseContext(), "Invalid Mobile or Password!", Toast.LENGTH_LONG).show();
-                return;
-            }
-
-            Log.i("LoginSuccess", response.getMesssage());
-            SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-
-            SharedPreferences sharedPreferences1 = getSharedPreferences("user", MODE_PRIVATE);
-            SharedPreferences.Editor edit = sharedPreferences1.edit();
-            edit.putString("uid", jsonObject.getString(PARAM_USER_ID));
-            Log.e(TAG, PARAM_USER_ID + "-" + jsonObject.getString(PARAM_USER_ID));
-            edit.commit();
-            User user = AppConstants.toUser(jsonObject);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(PREF_TYPE, type);
-
-
-            */
-/*SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-
-            SharedPreferences.Editor editor = sharedPreferences.edit();*//*
-
-            editor.putInt(PARAM_USER_ID, user.getId());
-            editor.putString(PARAM_USER_NAME, user.getUserName());
-
-            String timeInString = toAppTimeFormation(jsonObject.getString(PARAM_CHECK_IN));
-            if (timeInString != null) {
-                editor.putString(PARAM_CHECK_IN, timeInString);
-                editor.putString(CHECK_IN_DATE, AppConstants.calendarAsString(Calendar.getInstance()));
-            }
-            timeInString = toAppTimeFormation(jsonObject.getString(PARAM_CHECK_OUT));
-            if (timeInString != null)
-                editor.putString(PARAM_CHECK_OUT, timeInString);
-
-            editor.commit();
-            Intent result = new Intent();
-            result.putExtra("result", "success");
-            setResult(RESULT_OK, result);
-            finish();
-
-        } catch (Exception e) {
-            Log.e("On Login Success", e.getMessage());
-            Toast.makeText(LoginActivity.this, "Something Went Wrong,Contact Support", Toast.LENGTH_LONG);
-        }
-
-    }
-*/
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -364,19 +245,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void onLoginFailed(HttpResponse response) {
-        _loginButton.setEnabled(true);
-        if (response != null) {
-            showSnackbar("Something went wrong, Check Network connection!");
-            Log.e("Customer Login Failed", response.getMesssage());
-        }
-    }
 
-    public void login_onClick(View view) {
-
-        loginVolley();
-
-    }
 
     private void showSnackbar(String message) {
         final Snackbar snackbar = Snackbar.make(_rootScrollView, message,

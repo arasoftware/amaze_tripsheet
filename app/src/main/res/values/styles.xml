@@ -4,14 +4,14 @@
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.DarkActionBar">
 
-        <item name="colorPrimary">@color/mountain_gren</item>
-        <item name="colorPrimaryDark">@color/mountain_gren</item>
-        <item name="colorAccent">@color/mountain_gren</item>
+        <item name="colorPrimary">@color/bluegray</item>
+        <item name="colorPrimaryDark">@color/bluegray</item>
+        <item name="colorAccent">@color/bluegray</item>
         <item name="android:windowBackground">@color/snow</item>
         <item name="colorControlNormal">@color/graly</item>
         <item name="colorControlActivated">@color/graly</item>
         <item name="colorControlHighlight">@color/graly</item>
-        <item name="android:textColorHint">@color/mountain_gren</item>
+        <item name="android:textColorHint">@color/bluegray</item>
         <item name="android:editTextColor">@color/graly</item>
         <item name="android:textViewStyle">@style/textViewStyle</item>
         <item name="android:checkboxStyle">@style/checkBoxStyle</item>
@@ -25,7 +25,7 @@
     </style>
 
     <style name="actionbarStyle" parent="Widget.AppCompat.ActionBar.TabText">
-        <item name="android:background">@color/mountain_gren</item>
+        <item name="android:background">@color/bluegray</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/graly</item>
 
@@ -33,7 +33,7 @@
 
     <style name="buttonStyle" parent="android:Widget.Material.Button" tools:targetApi="lollipop">
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/mountain_gren</item>
+        <item name="android:background">@color/bluegray</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -43,7 +43,7 @@
     </style>
 
     <style name="textViewStyle" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/mountain_gren</item>
+        <item name="android:textColor">@color/bluegray</item>
         <item name="android:textStyle">bold</item>
 
     </style>
@@ -57,7 +57,7 @@
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:background">@color/mountain_gren</item>
+        <item name="android:background">@color/bluegray</item>
         <item name="colorControlNormal">@color/control_color</item>
 
         <item name="colorControlActivated">@color/control_color</item>
@@ -66,7 +66,7 @@
 
     <style name="logo">
 
-        <item name="android:textColor">@color/mountain_gren</item>
+        <item name="android:textColor">@color/bluegray</item>
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
         <item name="android:text">@string/app_name</item>
         <item name="android:textStyle">bold</item>
@@ -85,11 +85,11 @@
 
     <style name="TextLabel" parent="TextAppearance.AppCompat">
         <!-- Hint color and label color in FALSE state -->
-        <item name="android:textColorHint">@color/mountain_gren</item>
+        <item name="android:textColorHint">@color/bluegray</item>
         <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
-        <item name="colorAccent">@color/mountain_gren</item>
-        <item name="colorControlNormal">@color/mountain_gren</item>
-        <item name="colorControlActivated">@color/mountain_gren</item>
+        <item name="colorAccent">@color/bluegray</item>
+        <item name="colorControlNormal">@color/bluegray</item>
+        <item name="colorControlActivated">@color/bluegray</item>
     </style>
     <style name="card_style" parent="CardView">
         <item name="cardBackgroundColor">@color/white</item>
@@ -102,6 +102,12 @@
         <item name="cardElevation">7dp</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
+
+    </style>
+    <style name="tab" parent="@style/Widget.Design.TabLayout">
+        <item name="tabBackground">@color/bluegray</item>
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabSelectedTextColor">@color/white</item>
 
     </style>
 </resources>

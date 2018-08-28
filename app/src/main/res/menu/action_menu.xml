@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_tripHistory"
         android:orderInCategory="1"
-        android:visible="true"
+        android:visible="false"
         app:iconTint="@color/white"
         android:icon="@drawable/history"
         android:title="@string/history"

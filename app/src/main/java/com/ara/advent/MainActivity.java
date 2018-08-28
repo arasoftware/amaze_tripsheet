@@ -102,17 +102,24 @@ public class MainActivity extends AppCompatActivity {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         simpleViewPager.setAdapter(adapter);
         simpleViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                simpleViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
-
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-
-    }
-
-
 
     @Override
     public void onBackPressed() {
@@ -143,9 +150,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_logout_id:
                 logout();
                 break;
-            case R.id.action_tripHistory:
-                startActivity(new Intent(MainActivity.this, TripsheetHistory.class));
-                finish();
             default:
                 break;
         }
@@ -160,21 +164,9 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_tripHistory);
         Drawable icon = getResources().getDrawable(R.drawable.history);
         icon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
-
         item.setIcon(icon);
         return true;
     }
 
-    private void showSnackbar(String message) {
-        final Snackbar snackbar = Snackbar.make(li, message,
-                Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.text_ok_button, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                snackbar.dismiss();
-            }
-        });
-        snackbar.show();
-    }
 
 }

@@ -1,64 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:id="@+id/scrollcontainer"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity">
 
     <LinearLayout
-        android:id="@+id/maps_details_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/amaze_logo_space"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/maps_customer_trip_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/customer_name" />
-    </LinearLayout>
-
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/maps_distance_layout"
-        android:layout_below="@id/maps_details_layout"
-        android:layout_centerInParent="true"
-        tools:context=".MapsActivity" />
-
-    <LinearLayout
-        android:id="@+id/maps_distance_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-
-        android:layout_marginBottom="@dimen/amaze_logo_space"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/maps_distance"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/customer_name"
-            android:textColor="@color/black"
-            android:textSize="7pt" />
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/booking_id" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="18dp"
+                android:gravity="center"
+                android:text="@string/Starting_date" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp">
+
+            <TextView
+
+                android:id="@+id/textview_tripnoMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/no"
+                android:textColor="@color/graly" />
+
+            <TextView
+                android:id="@+id/textview_tripdateMap"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:paddingRight="10dp"
+                android:text="@string/dd_mm_yy"
+                android:textColor="@color/graly" />
+        </RelativeLayout>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/gray">
+
+        </TableRow>
 
         <TextView
-            android:id="@+id/maps_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/customer_name" />
+
+        <TextView
+            android:id="@+id/textview_customerMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
             android:text="@string/customer_name"
-            android:textColor="@color/black"
-            android:textSize="7pt" />
+            android:textColor="@color/graly" />
+
+        <TextView
+            android:background="@drawable/border"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="300dp"
+            android:text="maps"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@drawable/location"
+                android:tint="@color/mountain_gren" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/distancekm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:gravity="center"
+                    android:text="0 kilmeter"
+                    android:textColor="@color/graly" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="Distance" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/durationminute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:gravity="center"
+                    android:text="0 Minutes"
+                    android:textColor="@color/graly" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="Duration" />
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
-            android:id="@+id/maps_stop_duty"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/stopduty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/red"
+            android:gravity="center"
+            android:padding="10dp"
             android:text="Stop Duty" />
     </LinearLayout>
-
-</RelativeLayout>
+</ScrollView>

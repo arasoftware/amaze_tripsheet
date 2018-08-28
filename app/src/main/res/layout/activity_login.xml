@@ -81,6 +81,8 @@
                 android:layout_margin="20dp"
                 android:padding="15dp"
                 android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_weight="1"
                 android:background="@drawable/boxx"
                 android:text="@string/login"

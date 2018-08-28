@@ -83,15 +83,15 @@ public class TripsheetStart extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        SharedPreferences sharedPreferences = getSharedPreferences(PREFNAME,MODE_PRIVATE);
-        String tripno = sharedPreferences.getString(TBNO,"");
-        String tripDate = sharedPreferences.getString(TBDATE,"");
-        String customerName = sharedPreferences.getString(TBCNAME,"");
-        String bookingperson = sharedPreferences.getString(TBCMCNAME,"");
-        String reportingPerson = sharedPreferences.getString(TBREPORTTO,"");
-        String reportingTime = sharedPreferences.getString(REPORTINGTIME,"");
-        String pickUpLoc = sharedPreferences.getString(TBPICKUPPLACE,"");
-        String vehicleType = sharedPreferences.getString(TBCVEHNAME,"");
+        SharedPreferences sharedPreferences = getSharedPreferences(PREFNAME, MODE_PRIVATE);
+        String tripno = sharedPreferences.getString(TBNO, "");
+        String tripDate = sharedPreferences.getString(TBDATE, "");
+        String customerName = sharedPreferences.getString(TBCNAME, "");
+        String bookingperson = sharedPreferences.getString(TBCMCNAME, "");
+        String reportingPerson = sharedPreferences.getString(TBREPORTTO, "");
+        String reportingTime = sharedPreferences.getString(REPORTINGTIME, "");
+        String pickUpLoc = sharedPreferences.getString(TBPICKUPPLACE, "");
+        String vehicleType = sharedPreferences.getString(TBCVEHNAME, "");
 
         trino.setText(tripno);
         tripdate.setText(tripDate);
@@ -101,10 +101,11 @@ public class TripsheetStart extends AppCompatActivity {
         reportingtime.setText(reportingTime);
         pickupLocation.setText(pickUpLoc);
         vehile_type.setText(vehicleType);
+
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TripsheetStart.this,MapActivity.class));
+                startActivity(new Intent(TripsheetStart.this, MapsActivity.class));
                 finish();
             }
         });

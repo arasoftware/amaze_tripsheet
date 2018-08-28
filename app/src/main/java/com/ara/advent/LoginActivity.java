@@ -212,9 +212,9 @@ public class LoginActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialog.dismiss();
                 Log.e(TAG, "Login Error Response : " + error);
-
+                AppConstants.showSnackbar(_rootScrollView,""+error);
 
             }
         }) {

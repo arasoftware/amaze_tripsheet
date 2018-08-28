@@ -149,8 +149,8 @@ public class UpcomingFragment extends Fragment implements AdapterView.OnItemSele
                 editor.putString(REPORTINGTIME, reportingtime);
                 editor.putString(TBPICKUPPLACE, pickupPlace);
                 editor.commit();
-                showSnackbar(container, "item Clicked");
                 startActivity(new Intent(getActivity(), TripsheetStart.class));
+                getActivity().onBackPressed();
             }
         });
     }

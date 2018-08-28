@@ -18,7 +18,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,44 +46,50 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.ara.advent.utils.AppConstants.MY_CAMERA_REQUEST_CODE;
+import static com.ara.advent.utils.AppConstants.PREFNAME;
+import static com.ara.advent.utils.AppConstants.TBCNAME;
+import static com.ara.advent.utils.AppConstants.TBDATE;
+import static com.ara.advent.utils.AppConstants.TBNO;
+import static com.ara.advent.utils.AppConstants.USER_ID;
 
 public class TripsheetImageSubmit extends AppCompatActivity {
 
     private static final String TAG = "Oncall TripSheet";
-    private static final int REQUEST_TAKE_IMAGE_ONE = 1;
-    private static final int REQUEST_TAKE_IMAGE_ONE_BACK = 11;
-    private static final int REQUEST_TAKE_IMAGE_TWO = 2;
-    private static final int REQUEST_TAKE_IMAGE_THREE = 3;
-    private static final int REQUEST_TAKE_IMAGE_FOUR = 4;
+    private static final int REQUEST_TRIPSHEET_BILL = 1;
+    private static final int REQUEST_TRIPSHEET_BILLBACK = 11;
+    private static final int REQUEST_PARKING_BILL = 2;
+    private static final int REQUEST_PERMIT_BILL = 3;
+    private static final int REQUEST_TOLLGATEBILL = 4;
 
-    @BindView(R.id.textview_tripnosubmit)
-    TextView tripno;
-    @BindView(R.id.textview_tripdatesubmit)
+    @BindView(R.id.textview_tripnoSubmit)
+    TextView tripNo;
+    @BindView(R.id.textview_tripdateSubmit)
     TextView tripdate;
-    @BindView(R.id.textview_customersubmit)
+    @BindView(R.id.textview_customerSubmit)
     TextView customer;
     @BindView(R.id.OncallTripsheet_layout)
     ScrollView OntripLayout;
     @BindView(R.id.OnSubmit)
     Button OnSubmit_button;
-    @BindView(R.id.input_cameraImage1)
-    ImageView input_image1;
-    @BindView(R.id.input_cameraImage2)
-    ImageView input_image2;
-    @BindView(R.id.input_cameraImage3)
-    ImageView input_image3;
-    @BindView(R.id.input_cameraImag4)
-    ImageView input_image4;
     @BindView(R.id.ParkingAmount)
     EditText parkingAmount;
     @BindView(R.id.PermitAmount)
     EditText permitAmount;
     @BindView(R.id.TollAmount)
     EditText tollgateAmount;
-    @BindView(R.id.input_cameraImage1back)
-    ImageView input_image1back;
-    @BindView(R.id.closedate)
-    TextView closedate;
+    @BindView(R.id.tripsheetbill_pic)
+    ImageView tripsheetbill;
+    @BindView(R.id.parkingbill_pic)
+    ImageView parkingBil;
+    @BindView(R.id.permitbill_pic)
+    ImageView permitbill;
+    @BindView(R.id.tollgatebill_pic)
+    ImageView tollgatebill;
+    @BindView(R.id.tripsheetbill_back)
+    ImageView tripsheetbillback;
+    @BindView(R.id.trisheet_text)
+    TextView tripsheettext;
+
 
     String a;
     OncallTsModel oncallTsModel;
@@ -94,41 +99,28 @@ public class TripsheetImageSubmit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tripsheetimagesubmit);
         ButterKnife.bind(this);
+        if (!isNetworkAvailable()) {
+            AppConstants.showSnackbar(OntripLayout,"Something went wrong ,Please check your network connection");
+        }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         OntripLayout.setFocusableInTouchMode(true);
         OntripLayout.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
+        initializeViews();
+
+    }
+
+    private void initializeViews() {
+        SharedPreferences sharedPreferences = getSharedPreferences(PREFNAME, MODE_PRIVATE);
+        String tripno = sharedPreferences.getString(TBNO, "");
+        String tripDate = sharedPreferences.getString(TBDATE, "");
+        String customerName = sharedPreferences.getString(TBCNAME, "");
+        tripNo.setText(tripno);
+        tripdate.setText(tripDate);
+        customer.setText(customerName);
+        String id = sharedPreferences.getString(USER_ID,"");
 
         oncallTsModel = new OncallTsModel();
-
-        SharedPreferences sharedPreferences1 = getSharedPreferences("user", MODE_PRIVATE);
-        String id = sharedPreferences1.getString("uid", "");
-        Log.e(TAG, "id -- " + id);
-
-        SharedPreferences sharedPreferences = getSharedPreferences("submit", MODE_PRIVATE);
-        a = sharedPreferences.getString("tripsheetid", "");
-        String b = sharedPreferences.getString("tripsheetno", "");
-        String c = sharedPreferences.getString("tripsheetDate", "");
-        String d = sharedPreferences.getString("tripsheetcustomername", "");
-        String e = sharedPreferences.getString("closetime", "");
-        String f = sharedPreferences.getString("closekm", "");
-        String g = sharedPreferences.getString("totkm", "");
-        String h = sharedPreferences.getString("tottime", "");
-        String i = sharedPreferences.getString("closedate", "");
-        tripno.setText(b);
-        tripdate.setText(c);
-        closedate.setText(i);
-        customer.setText(d);
-        oncallTsModel.setClosingtime(e);
-        oncallTsModel.setClosingkilometer(f);
-        oncallTsModel.setTrip_Id(a);
-        oncallTsModel.setTotalTime(h);
-        oncallTsModel.setTotalkilometer(g);
         oncallTsModel.setUserid(id);
-        Log.e(TAG, "total kilometer " + g);
-        oncallTsModel.setClosingDate(i);
-        if (!isNetworkAvailable()) {
-            showSnackbar("Something went wrong ,Please check your network connection");
-        }
         OnSubmit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,36 +128,36 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             }
         });
 
-        input_image1.setOnClickListener(new View.OnClickListener() {
+        tripsheetbill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermissionForCamera(REQUEST_TAKE_IMAGE_ONE);
+                requestPermissionForCamera(REQUEST_TRIPSHEET_BILL);
             }
         });
 
-        input_image2.setOnClickListener(new View.OnClickListener() {
+        parkingBil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermissionForCamera(REQUEST_TAKE_IMAGE_TWO);
+                requestPermissionForCamera(REQUEST_PARKING_BILL);
             }
         });
-        input_image3.setOnClickListener(new View.OnClickListener() {
+        permitbill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestPermissionForCamera(REQUEST_TAKE_IMAGE_THREE);
+                requestPermissionForCamera(REQUEST_PERMIT_BILL);
             }
         });
 
-        input_image4.setOnClickListener(new View.OnClickListener() {
+        tollgatebill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestPermissionForCamera(REQUEST_TAKE_IMAGE_FOUR);
+                requestPermissionForCamera(REQUEST_TOLLGATEBILL);
             }
         });
-        input_image1back.setOnClickListener(new View.OnClickListener() {
+        tripsheetbillback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                requestPermissionForCamera(REQUEST_TAKE_IMAGE_ONE_BACK);
+                requestPermissionForCamera(REQUEST_TRIPSHEET_BILLBACK);
             }
         });
     }
@@ -180,7 +172,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.CAMERA)) {
-                showSnackbar("This App needs Camera", true);
+                AppConstants.showSnackbar(OntripLayout,"This App needs Camera");
             } else {
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(this,
@@ -217,7 +209,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
         }
 
         if (!isNetworkAvailable()) {
-            showSnackbar("PLease Check Your Netwok Connection");
+            AppConstants.showSnackbar(OntripLayout,"PLease Check Your Netwok Connection");
             return;
         }
         oncallTsModel.setPark_amount(parkingAmount.getText().toString());
@@ -265,7 +257,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
 
     private void onBookingFailure(HttpResponse response) {
         if (response != null) {
-            showSnackbar("Something went wrong.Please check your network connnection");
+            AppConstants.showSnackbar(OntripLayout,"Something went wrong.Please check your network connnection");
         }
     }
 
@@ -297,7 +289,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String tempImage = "temp.png";
-        if (requestCode == REQUEST_TAKE_IMAGE_ONE && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_TRIPSHEET_BILL && resultCode == RESULT_OK) {
 
             Bitmap imageBitmap = BitmapFactory.decodeFile(oncallTsModel.getTrip_front());
             int n = (int) (imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()));
@@ -306,10 +298,10 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             Log.e(TAG, "1.Height = " + a + "width = " + b + "total resolution = " + n);
             Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, n, true);
             compressImageFile(scaled, oncallTsModel.getTrip_front());
-            input_image1.setImageBitmap(scaled);
+            tripsheetbill.setImageBitmap(scaled);
             Log.e(TAG, "image bitmap One" + oncallTsModel.getTrip_front());
 
-        } else if (requestCode == REQUEST_TAKE_IMAGE_TWO && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_PARKING_BILL && resultCode == RESULT_OK) {
 
             Bitmap imageBitmap = BitmapFactory.decodeFile(oncallTsModel.getParking_image());
             int n = (int) (imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()));
@@ -318,10 +310,10 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             Log.e(TAG, "1.Height = " + a + "width = " + b + "total resolution = " + n);
             Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, n, true);
             compressImageFile(scaled, oncallTsModel.getParking_image());
-            input_image2.setImageBitmap(scaled);
+            parkingBil.setImageBitmap(scaled);
             Log.e(TAG, "image bitmap two" + oncallTsModel.getParking_image());
 
-        } else if (requestCode == REQUEST_TAKE_IMAGE_THREE && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_PERMIT_BILL && resultCode == RESULT_OK) {
 
             Bitmap imageBitmap = BitmapFactory.decodeFile(oncallTsModel.getPermit_image());
             int n = (int) (imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()));
@@ -330,10 +322,10 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             Log.e(TAG, "1.Height = " + a + "width = " + b + "total resolution = " + n);
             Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, n, true);
             compressImageFile(scaled, oncallTsModel.getPermit_image());
-            input_image3.setImageBitmap(scaled);
+            permitbill.setImageBitmap(scaled);
             Log.e(TAG, "image bitmap three" + oncallTsModel.getPermit_image());
 
-        } else if (requestCode == REQUEST_TAKE_IMAGE_FOUR && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_TOLLGATEBILL && resultCode == RESULT_OK) {
 
             Bitmap imageBitmap = BitmapFactory.decodeFile(oncallTsModel.getToll_image());
             int n = (int) (imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()));
@@ -342,10 +334,10 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             Log.e(TAG, "1.Height = " + a + "width = " + b + "total resolution = " + n);
             Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, n, true);
             compressImageFile(scaled, oncallTsModel.getToll_image());
-            input_image4.setImageBitmap(scaled);
+            tollgatebill.setImageBitmap(scaled);
             Log.e(TAG, "image bitmap four" + oncallTsModel.getToll_image());
 
-        } else if (requestCode == REQUEST_TAKE_IMAGE_ONE_BACK && resultCode == RESULT_OK) {
+        } else if (requestCode == REQUEST_TRIPSHEET_BILLBACK && resultCode == RESULT_OK) {
 
             Bitmap imageBitmap = BitmapFactory.decodeFile(oncallTsModel.getTripsheet_back());
             int n = (int) (imageBitmap.getHeight() * (512.0 / imageBitmap.getWidth()));
@@ -354,7 +346,7 @@ public class TripsheetImageSubmit extends AppCompatActivity {
             Log.e(TAG, "1.Height = " + a + "width = " + b + "total resolution = " + n);
             Bitmap scaled = Bitmap.createScaledBitmap(imageBitmap, 512, n, true);
             compressImageFile(scaled, oncallTsModel.getTripsheet_back());
-            input_image1back.setImageBitmap(scaled);
+            tripsheetbillback.setImageBitmap(scaled);
             Log.e(TAG, "image bitmap One back " + oncallTsModel.getTripsheet_back());
         }
     }
@@ -414,40 +406,13 @@ public class TripsheetImageSubmit extends AppCompatActivity {
     public boolean formValid() {
 
         boolean isValid = true;
-/*
-
-        if (!parkingAmount.getText().toString().isEmpty()) {
-            if (oncallTsModel.getParking_image() == null) {
-                showSnackbar("Take Parking bill's photo", false);
-                return false;
-            }
-            parkingAmount.setError(null);
-            isValid = true;
-        }
-        if (!permitAmount.getText().toString().isEmpty()) {
-            if (oncallTsModel.getPermit_image() == null) {
-                showSnackbar("Take Permit bill's Photo.", false);
-                return false;
-            }
-            permitAmount.setError(null);
-            isValid = true;
-        }
-        if (!tollgateAmount.getText().toString().isEmpty()) {
-            if (oncallTsModel.getToll_image() == null) {
-                showSnackbar("Take Tollgate Photo.", false);
-                return false;
-            }
-            tollgateAmount.setError(null);
-            isValid = true;
-        }
-*/
 
         if (oncallTsModel.getTrip_front() == null) {
-            showSnackbar("Take Trip sheet Front Side photo.", false);
+            AppConstants.showSnackbar(OntripLayout,"Take Trip sheet Front Side photo.");
             return false;
         }
         if (oncallTsModel.getTripsheet_back() == null) {
-            showSnackbar("Take Trip sheet backside photo.", false);
+            AppConstants.showSnackbar(OntripLayout,"Take Trip sheet backside photo.");
             return false;
         }
 
